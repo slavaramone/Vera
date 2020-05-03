@@ -27,7 +27,6 @@ namespace Domain.Models
             UserId = userId;
             UploaderUserId = uploaderUserId;
             CreationDate = creationDate;
-            CreationDate = DateTime.Now;
             MeasurementType = measurementType;
             ValueMin = valueMin;
             ValueMax = valueMax;
