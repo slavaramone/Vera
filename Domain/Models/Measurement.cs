@@ -5,27 +5,28 @@ namespace Domain.Models
 {
     public class Measurement
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
-        public Guid UserId { get; set; }
+        public Guid UserId { get; private set; }
 
-        public Guid UploaderUserId { get; set; }
+        public Guid UploaderUserId { get; private set; }
 
-        public DateTime CreationDate { get; set; }
+        public DateTime CreationDate { get; private set; }
 
-        public MeasurementType MeasurementType { get; set; }
+        public MeasurementType MeasurementType { get; private set; }
 
-        public double ValueMin { get; set; }
+        public double ValueMin { get; private set; }
 
-        public double? ValueMax { get; set; }
+        public double? ValueMax { get; private set; }
 
-        public string ValueText { get; set; }
+        public string ValueText { get; private set; }
 
-        public Measurement(Guid id, Guid userId, Guid uploaderUserId, MeasurementType measurementType, double valueMin, double? valueMax = null, string valueText = null)
+        public Measurement(Guid id, Guid userId, Guid uploaderUserId, DateTime creationDate, MeasurementType measurementType, double valueMin, double? valueMax = null, string valueText = null)
         {
             Id = id;
             UserId = userId;
             UploaderUserId = uploaderUserId;
+            CreationDate = creationDate;
             CreationDate = DateTime.Now;
             MeasurementType = measurementType;
             ValueMin = valueMin;

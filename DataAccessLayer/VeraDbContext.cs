@@ -9,6 +9,8 @@ namespace DataAccessLayer
     {
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Measurement> Measurements { get; set; }
+
         public DbSet<UserSmsSession> UserSmsSessions { get; set; }
 
         public VeraDbContext(DbContextOptions<VeraDbContext> options)

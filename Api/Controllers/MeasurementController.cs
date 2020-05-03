@@ -1,7 +1,9 @@
 ﻿using Api.Security;
 using Domain.Exceptions;
+using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
@@ -10,19 +12,25 @@ namespace Api.Controllers
     public class MeasurementController : ControllerBase
     {
         private readonly IClaimsAccessor _claimsAccessor;
+        private readonly IVeraDbRepository _repo;
 
-        public MeasurementController(IClaimsAccessor claimsAccessor)
+        public MeasurementController(IClaimsAccessor claimsAccessor, IVeraDbRepository repo)
         {
             _claimsAccessor = claimsAccessor;
+            _repo = repo;
         }
 
         [HttpPost()]
         [Produces("application/json")]
         [ProducesResponseType(200)]
-        public IActionResult Upload([FromBody] UploadMeasurementRequest request)
+        public async Task<IActionResult> Upload([FromBody] UploadMeasurementRequest request)
         {
             Guid uploaderUserId = GetUserId();
 
+            foreach (var measurement in request.Measurements)
+            {
+                await _repo.CreateMeasurement(measurement);
+            }
             return Ok();
         }
 

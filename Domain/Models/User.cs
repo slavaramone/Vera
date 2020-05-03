@@ -5,19 +5,19 @@ namespace Domain.Models
 {
     public class User
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
-        public string LastName { get; set; }
+        public string LastName { get; private set; }
 
-        public string FirstName { get; set; }
+        public string FirstName { get; private set; }
 
-        public string Patronymic { get; set; }
+        public string Patronymic { get; private set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime BirthDate { get; private set; }
 
-        public UserRole Role { get; set; }
+        public UserRole Role { get; private set; }
 
-        public string Phone { get; set; }
+        public string Phone { get; private set; }
 
         public User(Guid id, string lastName, string firstName, string patronymic, DateTime birthday, UserRole role, string phone)
         {

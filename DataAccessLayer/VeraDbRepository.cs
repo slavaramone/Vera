@@ -61,6 +61,16 @@ namespace DataAccessLayer.Repositories
             throw new PhoneNotFoundException();
         }
 
+        public async Task<Guid> CreateMeasurement(Measurement measurementModel)
+        {
+            var measurement = _mapper.Map<Entities.Measurement>(measurementModel);
+
+            _db.Measurements.Add(measurement);
+            await _db.SaveChangesAsync();
+
+            return measurement.Id;
+        }
+
         public async Task<Guid> CreateUserSmsSession(Guid userId, string smsCode)
         {            
             using (var connection = Connection)

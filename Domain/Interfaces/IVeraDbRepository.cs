@@ -8,6 +8,8 @@ namespace Domain.Interfaces
     {
         Task<User> GetUser(string lastName, string firstName, string patronymic, string phone);
 
+        Task<Guid> CreateMeasurement(Measurement measurement);
+
         Task<Guid> CreateUserSmsSession(Guid userId, string smsCode);
 
         Task<ValidateSmsCodeResult> ValidateSmsCode(Guid sessionId, string smsCode);
