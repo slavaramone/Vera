@@ -35,5 +35,7 @@ namespace DataAccessLayer.Entities
         public string Phone { get; set; }
 
         public virtual List<UserSmsSession> UserSessions { get; set; }
+
+        public virtual List<Measurement> Measurements { get; set; }
     }
 }

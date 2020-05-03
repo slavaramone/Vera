@@ -23,6 +23,12 @@ namespace DataAccessLayer
                 .WithMany(x => x.UserSessions)
                 .HasForeignKey(x => x.UserId);
 
+            modelBuilder.Entity<Measurement>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.Measurements)
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             //Users
             modelBuilder.Entity<User>().HasData(new User
             {

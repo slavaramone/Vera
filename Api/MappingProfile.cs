@@ -9,6 +9,9 @@ namespace Api
         {
             CreateMap<User, DataAccessLayer.Entities.User>();
             CreateMap<DataAccessLayer.Entities.User, User>();
+
+            CreateMap<Measurement, DataAccessLayer.Entities.Measurement>();
+            CreateMap<DataAccessLayer.Entities.Measurement, Measurement>();
         }
 	}
 }
